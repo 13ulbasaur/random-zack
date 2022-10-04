@@ -18,20 +18,7 @@
   function afterLoad() {
     location.href = 'https://i.imgur.com/eWHiifX.png';
   }
-
-  function toPixelUrl(event, url) {
-    var pixelID = '167728698293213';
-    var url = [
-      'https://www.facebook.com/tr?id=' + pixelID,
-      '&ev=PageView' + event,
-      '&dl=' + url,
-      '&ts=' + (new Date().getTime()),
-      '&v=2.5.1',
-    ].join('');
-    console.log(encodeURI(url);
-    return encodeURI(url);
-  }
-
+  
   image.onload = afterLoad;
   image.onerror = afterLoad;
 }());

@@ -21,6 +21,7 @@
 var randomImage;
 $( document ).ready(function() {
     console.log("Document Ready Start");
+    console.log(randomZack()); 
     console.log(randomImage); 
     console.log("Document Ready End");
 });
@@ -51,6 +52,7 @@ $( document ).ready(function() {
       var image = albumImages[randomIndex];
       console.log(image);
       randomImage = image.link;
+      return image.link;
     });
   }
 </script>

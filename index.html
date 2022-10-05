@@ -12,18 +12,43 @@
 </head>
 
 <body>
-<script>
-(function init() {
-  var image = new Image();
+  <script>
+  (function init() {
+    var image = new Image();
 
-  function afterLoad() {
-    location.href = 'https://i.imgur.com/eWHiifX.png';
-  }
-  
-  image.onload = afterLoad;
-  image.onerror = afterLoad;
-  image.src = 'https://i.imgur.com/eWHiifX.png';
-}());
-</script>
+    function afterLoad() {
+      location.href = 'https://i.imgur.com/eWHiifX.png';
+    }
+
+    image.onload = afterLoad;
+    image.onerror = afterLoad;
+    image.src = 'https://i.imgur.com/eWHiifX.png';
+  }());
+    //Get Zack Album Images
+    var apiUrl = 'https://api.imgur.com/3/album/oxkpocN';
+    var apiKey = 'f8099a70e63f0b0';
+
+    var settings = {
+      async: false,
+      crossDomain: true,
+      processData: false,
+      contentType: false,
+      type: 'GET',
+      url: apiUrl,
+      headers: {
+        Authorization: 'Client-ID ' + apiKey,
+        Accept: 'application/json'
+      }
+    };
+//mimeType: 'multipart/form-data'
+    var formData = new FormData();
+
+    // Response contains stringified JSON
+    // URL available at response.data.link
+    $.ajax(settings).done(function(response) {
+      console.log(response);
+    });
+  </script>
 </body>
+  
 </html>

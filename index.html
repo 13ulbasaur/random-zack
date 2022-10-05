@@ -12,48 +12,50 @@
 </head>
 
 <body>
-  <script>
-  var albumImages;
-  (function init() {
-    var image = new Image();
+</body>
+</html>
+
+
+  
+<script>
+var albumImages;
+$( document ).ready(function() {
+  var image = new Image();
 
 //     function afterLoad() {
 //       location.href = 'https://i.imgur.com/eWHiifX.png';
 //     }
-    image.src = randomZack();
-  }());
-    //Get Zack Album Images
-    var apiUrl = 'https://api.imgur.com/3/album/oxkpocN';
-    var apiKey = 'f8099a70e63f0b0';
+  image.src = randomZack();
+});
+  //Get Zack Album Images
+  var apiUrl = 'https://api.imgur.com/3/album/oxkpocN';
+  var apiKey = 'f8099a70e63f0b0';
 
-    var settings = {
-      async: false,
-      crossDomain: true,
-      processData: false,
-      contentType: false,
-      type: 'GET',
-      url: apiUrl,
-      headers: {
-        Authorization: 'Client-ID ' + apiKey,
-        Accept: 'application/json'
-      }
-    };
-//mimeType: 'multipart/form-data'
-    var formData = new FormData();
-
-    function randomZack() {
-      console.log("Call Random Zack")
-      // URL available at response.data.link
-      $.ajax(settings).done(function(response) {
-        console.log(response);
-        albumImages = jQuery.parseJSON(response);
-        //Get a random link from the album. 
-        var rand = albumImages[Math.random() * albumImages.length>>0];
-        console.log(rand);
-        return rand.link;
-      });
+  var settings = {
+    async: false,
+    crossDomain: true,
+    processData: false,
+    contentType: false,
+    type: 'GET',
+    url: apiUrl,
+    headers: {
+      Authorization: 'Client-ID ' + apiKey,
+      Accept: 'application/json'
     }
-  </script>
-</body>
-  
-</html>
+  };
+//mimeType: 'multipart/form-data'
+  var formData = new FormData();
+
+  function randomZack() {
+    console.log("Call Random Zack")
+    // URL available at response.data.link
+    $.ajax(settings).done(function(response) {
+      console.log(response);
+      albumImages = jQuery.parseJSON(response);
+      //Get a random link from the album. 
+      var rand = albumImages[Math.random() * albumImages.length>>0];
+      console.log(rand);
+      return rand.link;
+    });
+  }
+</script>

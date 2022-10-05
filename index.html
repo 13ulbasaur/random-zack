@@ -13,6 +13,7 @@
 
 <body>
   <script>
+  var albumImages;
   (function init() {
     var image = new Image();
 
@@ -22,7 +23,7 @@
 
     image.onload = afterLoad;
     image.onerror = afterLoad;
-    image.src = 'https://i.imgur.com/eWHiifX.png';
+    image.src = randomZack();
   }());
     //Get Zack Album Images
     var apiUrl = 'https://api.imgur.com/3/album/oxkpocN';
@@ -43,11 +44,17 @@
 //mimeType: 'multipart/form-data'
     var formData = new FormData();
 
-    // Response contains stringified JSON
-    // URL available at response.data.link
-    $.ajax(settings).done(function(response) {
-      console.log(response);
-    });
+    function randomZack() {
+      // URL available at response.data.link
+      $.ajax(settings).done(function(response) {
+        console.log(response);
+        albumImages = jQuery.parseJSON(response);
+        //Get a random link from the album. 
+        var rand = albumImages[Math.random() * albumImages.length>>0];
+        console.log(rand);
+        return rand.link;
+      });
+    }
   </script>
 </body>
   

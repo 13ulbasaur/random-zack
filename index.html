@@ -51,7 +51,7 @@ $( document ).ready(function() {
     // URL available at response.data.link
     $.ajax(settings).done(function(response) {
       console.log(response);
-      albumImages = jQuery.parseJSON(response);
+      albumImages = response.images;
       //Get a random link from the album. 
       var rand = albumImages[Math.random() * albumImages.length>>0];
       console.log(rand);

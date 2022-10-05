@@ -20,7 +20,9 @@
 <script>
 var randomImage;
 $( document ).ready(function() {
-   console.log(randomZack()); 
+    console.log("Document Ready Start");
+    console.log(randomZack()); 
+    console.log("Document Ready End");
 });
   //Get Zack Album Images
   var apiUrl = 'https://api.imgur.com/3/album/oxkpocN';
@@ -30,15 +32,10 @@ $( document ).ready(function() {
   function randomZack() {
 
     var settings = {
-      async: false,
-      crossDomain: true,
-      processData: false,
-      contentType: false,
       type: 'GET',
       url: apiUrl,
       headers: {
-        Authorization: 'Client-ID ' + apiKey,
-        Accept: 'application/json'
+        Authorization: 'Client-ID ' + apiKey
       }
     };
   //mimeType: 'multipart/form-data'

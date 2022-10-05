@@ -21,8 +21,7 @@
 var randomImage;
 $( document ).ready(function() {
     console.log("Document Ready Start");
-    console.log(randomZack()); 
-    console.log(randomImage); 
+    randomZack()
     console.log("Document Ready End");
 });
   //Get Zack Album Images
@@ -53,7 +52,7 @@ $( document ).ready(function() {
       console.log(image);
       console.log(image.link);
       randomImage = image.link;
-      return image.link;
+      window.location.href = image.link;
     });
   }
 </script>

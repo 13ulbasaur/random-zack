@@ -54,9 +54,10 @@ $( document ).ready(function() {
       albumImages = response.data.images;
       console.log(albumImages);
       //Get a random link from the album. 
-      var rand = albumImages[Math.random() * albumImages.length>>0];
-      console.log(rand);
-      return rand.link;
+      var randomIndex = Math.floor(Math.random() * albumImages.length);
+      var image = albumImages[randomIndex];
+      console.log(image);
+      return image.link;
     });
   }
 </script>
